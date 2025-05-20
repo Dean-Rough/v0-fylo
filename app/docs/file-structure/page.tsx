@@ -1,3 +1,10 @@
+import { MarkdownContent } from "@/components/markdown-content"
+
+export default function FileStructurePage() {
+  const content = `
+# File Structure
+
+\`\`\`
 src/
 ├── app/                 # Next.js App Router pages
 ├── components/          # Reusable UI components
@@ -19,3 +26,12 @@ src/
 │   ├── repositories/    # Repository implementations
 │   └── services/        # External services
 └── types/               # TypeScript type definitions
+\`\`\`
+`
+
+  return (
+    <div>
+      <MarkdownContent content={content} />
+    </div>
+  )
+}

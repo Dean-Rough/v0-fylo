@@ -1,6 +1,12 @@
-Database Schema Outline
-Users Table
+import { MarkdownContent } from "@/components/markdown-content"
 
+export default function DatabaseSchemaPage() {
+  const content = `
+# Database Schema Outline
+
+## Users Table
+
+\`\`\`
 CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   email TEXT UNIQUE NOT NULL,
@@ -9,8 +15,11 @@ CREATE TABLE users (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
-Projects Table
+\`\`\`
 
+## Projects Table
+
+\`\`\`
 CREATE TABLE projects (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
@@ -19,8 +28,11 @@ CREATE TABLE projects (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
-MoodBoards Table
+\`\`\`
 
+## MoodBoards Table
+
+\`\`\`
 CREATE TABLE mood_boards (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
@@ -29,8 +41,11 @@ CREATE TABLE mood_boards (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
-Products Table
+\`\`\`
 
+## Products Table
+
+\`\`\`
 CREATE TABLE products (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
@@ -44,8 +59,11 @@ CREATE TABLE products (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
-Suppliers Table
+\`\`\`
 
+## Suppliers Table
+
+\`\`\`
 CREATE TABLE suppliers (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   name TEXT NOT NULL,
@@ -54,3 +72,12 @@ CREATE TABLE suppliers (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+\`\`\`
+`
+
+  return (
+    <div>
+      <MarkdownContent content={content} />
+    </div>
+  )
+}
